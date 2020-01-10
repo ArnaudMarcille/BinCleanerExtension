@@ -3,7 +3,7 @@
     <Metadata>
         <Identity Id="BinCleanerExtension.67a2a5cb-c28f-40a2-8d01-33d128ad957d" Version="1.0" Language="en-US" Publisher="Rowtips" />
         <DisplayName>BinCleanerExtension</DisplayName>
-        <Description>Empty VSIX Project.</Description>
+        <Description xml:space="preserve">BinCleanerExtension is an extension who allow you to delete one or multible bin and obj folder of your projects.</Description>
         <Icon>Commands\Resources\BinCleanerPackage.ico</Icon>
         <PreviewImage>Commands\Resources\BinCleanerPackage.png</PreviewImage>
     </Metadata>
