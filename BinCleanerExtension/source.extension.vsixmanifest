@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="BinCleanerExtension.67a2a5cb-c28f-40a2-8d01-33d128ad957d" Version="1.0" Language="en-US" Publisher="MARCILLE, ARNAUD" />
+        <Identity Id="BinCleanerExtension.67a2a5cb-c28f-40a2-8d01-33d128ad957d" Version="1.0" Language="en-US" Publisher="Rowtips" />
         <DisplayName>BinCleanerExtension</DisplayName>
         <Description>Empty VSIX Project.</Description>
         <Icon>Commands\Resources\BinCleanerPackage.ico</Icon>
-        <PreviewImage>Commands\Resources\BinCleaner.png</PreviewImage>
+        <PreviewImage>Commands\Resources\BinCleanerPackage.png</PreviewImage>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 17.0)" />

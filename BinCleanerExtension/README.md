@@ -1,20 +1,14 @@
-
-
-# EmptyLine Extension
-
-Visual Studio extension for remove empty lines (more than one consecutive empty line)
+# BinCleanerExtension
+BinCleanerExtension is an extension who allow you to delete one or multible bin and obj folder of your projects in one click.
 
 ## Getting Started
 
-The extension is available [the marketplace](https://marketplace.visualstudio.com/items?itemName=Mybiblipi.EmptyLineExtention) or directly in Visual studio in Tool => Extension and Update
+The extension is available [the marketplace]([https://marketplace.visualstudio.com/items?itemName=Mybiblipi.BinCleanerExtension](https://marketplace.visualstudio.com/items?itemName=Mybiblipi.BinCleanerExtension)) or directly in Visual studio in Tool => Extension and Update
 
-Once the extension is installed, a "Remove empty lines" option is available when right clicking in a file.
+## Compatibility
 
-  
-![Image](https://i.goopics.net/3qgW8.png)
+VS 2017 and VS2019
 
-### Prerequisites
+## How to use it?
 
-The extension is only available Visual Studio 2017.
-
-
+Go in "Tools/Clean bin and obj", then select all project to clean, then click on clean and wait for it.
