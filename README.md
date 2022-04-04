@@ -9,7 +9,7 @@ The extension is available [the marketplace](https://marketplace.visualstudio.co
 
 ## Compatibility
 
-VS 2017 and VS2019
+VS 2022 
 
 ## How to use it?
 
