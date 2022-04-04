@@ -35,7 +35,6 @@ steps:
     TargetFolder: '$(build.artifactstagingdirectory)'
   condition: succeededOrFailed()
 
-steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
