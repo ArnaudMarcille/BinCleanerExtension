@@ -5,6 +5,8 @@ BinCleanerExtension is an extension who allow you to delete one or multible bin 
 
 The extension is available [the marketplace](https://marketplace.visualstudio.com/items?itemName=Mybiblipi.BinCleanerExtension) or directly in Visual studio in Tool => Extension and Update
 
+[![marketplace](https://img.shields.io/static/v1?label=Marketplace&message=1.3.2&color=green)](https://marketplace.visualstudio.com/items?itemName=Mybiblipi.BinCleanerExtension)
+
 ## Compatibility
 
 VS 2017 and VS2019
