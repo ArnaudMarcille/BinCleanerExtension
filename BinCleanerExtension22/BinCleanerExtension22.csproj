@@ -95,11 +95,11 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BinCleanerPackage.ico">
+    <Content Include="Commands\Resources\BinCleanerPackage.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="BinCleanerPackage.png">
+    <Content Include="Commands\Resources\BinCleanerPackage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
