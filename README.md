@@ -9,9 +9,12 @@ The extension is available [the marketplace](https://marketplace.visualstudio.co
 
 ## Compatibility
 
-VS 2022 
+VS 2022
 
 ## How to use it?
 
 Go in "Tools/Clean bin and obj", then select all project to clean, then click on clean and wait for it.
 
+![Image](/images/readMe_Option_01.png)
+
+![Image](/images/readMe_Option_02.png)
