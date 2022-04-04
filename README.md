@@ -1,3 +1,4 @@
+# LEGACY - VS2019 Branch
 # BinCleanerExtension
 BinCleanerExtension is an extension who allow you to delete one or multible bin and obj folder of your projects in one click.
 
