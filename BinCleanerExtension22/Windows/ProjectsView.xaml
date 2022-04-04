@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="BinCleanerExtension22.Windows.ProjectsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Converters="clr-namespace:BinCleanerExtension22.Windows.Converters"
+             xmlns:local="clr-namespace:BinCleanerExtension22.Windows"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Margin="16">
+            <Grid.Resources>
+                <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+                <Converters:ReverseBooleanToVisibilityConverter x:Key="ReverseBooleanToVisibilityConverter" />
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Label Margin="0,8" Content="Select projects to clean :" />
+
+            <Separator Grid.Row="1" />
+
+            <CheckBox
+                Grid.Row="2"
+                Margin="0,8"
+                Content="Select all"
+                IsChecked="{Binding SelectAll}" />
+            <ItemsControl Grid.Row="3" ItemsSource="{Binding ProjectList, UpdateSourceTrigger=PropertyChanged}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <CheckBox
+                                VerticalAlignment="Center"
+                                Content="{Binding Key}"
+                                IsChecked="{Binding Selected}" />
+                            <Image
+                                Grid.Column="1"
+                                Width="15"
+                                Height="15"
+                                Margin="8,0,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Stretch="Fill"
+                                Visibility="{Binding Done, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <Image.Source>
+                                    <DrawingImage>
+                                        <DrawingImage.Drawing>
+                                            <DrawingGroup ClipGeometry="M0,0 V511.999 H511.999 V0 H0 Z">
+                                                <DrawingGroup.Transform>
+                                                    <TranslateTransform X="0.000250011682510376" Y="0" />
+                                                </DrawingGroup.Transform>
+                                                <GeometryDrawing Brush="#FFA5EB78" Geometry="F1 M511.999,511.999z M0,0z M427.534,73.084L203.024,297.594C196.973,303.645,187.161,303.645,181.11,297.594L84.465,200.949 8.099,277.313 153.884,423.098C164.011,433.225,177.746,438.914,192.067,438.914L192.067,438.914C206.387,438.914,220.124,433.224,230.249,423.098L503.899,149.448 427.534,73.084z" />
+                                                <DrawingGroup Opacity="0.10000000149011612">
+                                                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M511.999,511.999z M0,0z M478.646,124.196L189.754,413.087C181.761,421.079 171.711,426.529 160.852,428.959 169.918,435.384 180.808,438.914 192.067,438.914L192.067,438.914C206.387,438.914,220.124,433.224,230.249,423.098L503.899,149.448 478.646,124.196z" />
+                                                </DrawingGroup>
+                                                <GeometryDrawing Brush="#FF000000" Geometry="F1 M511.999,511.999z M0,0z M192.068,447.014C175.481,447.014,159.886,440.555,148.156,428.825L2.372,283.04C-0.791,279.877,-0.791,274.748,2.372,271.586L78.738,195.22C81.902,192.057,87.03,192.057,90.193,195.22L118.861,223.887C122.024,227.05 122.024,232.179 118.861,235.341 115.696,238.504 110.568,238.503 107.406,235.341L84.466,212.401 19.555,277.312 159.613,417.37C168.282,426.039 179.808,430.813 192.069,430.813 204.329,430.813 215.854,426.038 224.525,417.37L411.476,230.418C414.639,227.255 419.767,227.254 422.931,230.418 426.094,233.581 426.094,238.71 422.931,241.872L235.979,428.826C224.248,440.555,208.653,447.014,192.068,447.014z" />
+                                                <GeometryDrawing Brush="#FF000000" Geometry="F1 M511.999,511.999z M0,0z M192.068,310.232C185.765,310.232,179.84,307.778,175.384,303.321L130.316,258.253C127.153,255.09 127.153,249.961 130.316,246.799 133.48,243.636 138.608,243.636 141.771,246.799L186.839,291.867C188.235,293.263 190.093,294.032 192.068,294.032 194.043,294.032 195.901,293.263 197.298,291.866L421.806,67.357C424.97,64.194,430.098,64.194,433.261,67.357L509.627,143.723C511.145,145.241 511.999,147.302 511.999,149.45 511.999,151.598 511.146,153.659 509.627,155.177L445.84,218.964C442.676,222.127 437.548,222.126 434.385,218.964 431.222,215.801 431.222,210.672 434.385,207.51L492.446,149.45 427.536,84.54 208.752,303.321C204.295,307.777,198.369,310.232,192.068,310.232z" />
+                                            </DrawingGroup>
+                                        </DrawingImage.Drawing>
+                                    </DrawingImage>
+                                </Image.Source>
+                            </Image>
+
+                            <Image
+                                Grid.Column="1"
+                                Width="15"
+                                Height="15"
+                                Margin="8,0,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Stretch="Fill"
+                                Visibility="{Binding Done, Converter={StaticResource ReverseBooleanToVisibilityConverter}}">
+                                <Image.Source>
+                                    <DrawingImage>
+                                        <DrawingImage.Drawing>
+                                            <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+                                                <GeometryDrawing Brush="#FFFF6465" Geometry="F1 M512,512z M0,0z M380.688,256.001L496.987,139.702C505.707,130.982,505.707,116.843,496.987,108.123L403.88,15.015C395.16,6.29499999999996,381.021,6.29499999999996,372.301,15.015L256.001,131.314 139.701,15.015C130.981,6.29499999999996,116.842,6.29499999999996,108.122,15.015L15.015,108.122C6.29499999999996,116.842,6.29499999999996,130.981,15.015,139.701L131.314,256 15.015,372.3C6.295,381.02,6.295,395.159,15.015,403.879L108.123,496.986C116.843,505.706,130.982,505.706,139.702,496.986L256.001,380.687 372.3,496.985C381.02,505.705,395.159,505.705,403.879,496.985L496.987,403.878C505.707,395.158,505.707,381.019,496.987,372.299L380.688,256.001z" />
+                                                <GeometryDrawing Brush="#FF000000" Geometry="F1 M512,512z M0,0z M388.082,511.986C380.195,511.986,372.305,508.983,366.301,502.978L322.454,459.132C319.145,455.823 319.145,450.457 322.454,447.149 325.763,443.841 331.128,443.839 334.438,447.149L378.284,490.995C383.686,496.397,392.477,496.399,397.881,490.995L490.986,397.888C493.604,395.271 495.046,391.791 495.046,388.09 495.046,384.389 493.605,380.91 490.988,378.292L374.689,261.992C371.38,258.683,371.38,253.317,374.689,250.009L490.988,133.71C493.606,131.093 495.048,127.613 495.048,123.912 495.048,120.211 493.607,116.732 490.99,114.114L397.882,21.006C395.264,18.388 391.785,16.948 388.083,16.948 384.383,16.948 380.903,18.389 378.286,21.006L261.986,137.305C260.396,138.895 258.242,139.787 255.993,139.787 253.744,139.787 251.591,138.894 250,137.305L184.464,71.768C181.155,68.459 181.155,63.093 184.464,59.785 187.774,56.475 193.139,56.476 196.448,59.785L255.992,119.33 366.301,9.023C372.119,3.204 379.855,0 388.082,0 396.309,0 404.046,3.204 409.863,9.022L502.971,102.13C508.789,107.948 511.993,115.684 511.993,123.911 511.993,132.138 508.789,139.875 502.97,145.692L392.664,255.999 502.971,366.306C508.789,372.124 511.993,379.86 511.993,388.087 511.993,396.314 508.789,404.051 502.97,409.869L409.865,502.976C403.859,508.983,395.971,511.986,388.082,511.986z" />
+                                                <GeometryDrawing Brush="#FF000000" Geometry="F1 M512,512z M0,0z M123.905,512C115.677,512,107.941,508.796,102.124,502.978L9.015,409.87C-2.995,397.86,-2.995,378.318,9.015,366.306L119.323,255.999 9.015,145.692C-2.994,133.682,-2.994,114.14,9.015,102.128L102.123,9.02100000000002C107.941,3.204 115.677,0 123.905,0 132.133,0 139.869,3.204 145.686,9.022L172.48,35.816C175.789,39.125 175.789,44.491 172.48,47.799 169.17,51.108 163.805,51.108 160.496,47.799L133.702,21.005C131.086,18.388 127.605,16.947 123.905,16.947 120.204,16.947 116.725,18.388 114.106,21.005L21,114.112C15.598,119.515,15.598,128.305,21,133.708L137.3,250.007C138.889,251.596 139.781,253.751 139.781,255.999 139.781,258.247 138.888,260.402 137.3,261.991L21,378.291C15.597,383.694,15.597,392.484,21,397.887L114.108,490.995C116.724,493.612 120.205,495.053 123.905,495.053 127.606,495.053 131.085,493.612 133.704,490.995L250.002,374.696C251.592,373.106 253.746,372.214 255.995,372.214 258.243,372.214 260.397,373.107 261.988,374.696L310.473,423.181C313.782,426.49 313.782,431.856 310.473,435.164 307.163,438.473 301.798,438.473 298.489,435.164L255.996,392.67 145.69,502.978C139.869,508.796,132.132,512,123.905,512z" />
+                                            </DrawingGroup>
+                                        </DrawingImage.Drawing>
+                                    </DrawingImage>
+                                </Image.Source>
+                            </Image>
+
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Separator Grid.Row="4" />
+            <Grid Grid.Row="5" Margin="0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Grid.Column="2"
+                    MinWidth="120"
+                    HorizontalAlignment="Right"
+                    Click="Button_Click"
+                    Content="Clean" />
+            </Grid>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>
