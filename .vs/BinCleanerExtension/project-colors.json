@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "18a1ee2c-24af-479b-9e5a-940532c780ab": {
+      "ProjectGuid": "18a1ee2c-24af-479b-9e5a-940532c780ab",
+      "DisplayName": "BinCleanerExtension",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

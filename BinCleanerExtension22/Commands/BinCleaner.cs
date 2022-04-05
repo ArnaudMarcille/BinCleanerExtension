@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
-using BinCleanerExtension.Windows;
+using BinCleanerExtension22.Windows;
 using Microsoft.Internal.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Task = System.Threading.Tasks.Task;
 
-namespace BinCleanerExtension.Commands
+namespace BinCleanerExtension22.Commands
 {
     /// <summary>
     /// Command handler
     /// </summary>
     internal sealed class BinCleaner
     {
+        #region Fields
+
         /// <summary>
         /// Command ID.
         /// </summary>
@@ -24,12 +26,17 @@ namespace BinCleanerExtension.Commands
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("efc26bad-d32a-449e-a977-ffd4cec833b8");
+        public static readonly Guid CommandSet = new Guid("a6ab2fb9-8dcd-4442-b446-fe92aed67978");
 
         /// <summary>
         /// VS Package that provides this command, not null.
         /// </summary>
         private readonly AsyncPackage package;
+
+        #endregion
+
+        #region Constructor
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BinCleaner"/> class.
@@ -43,9 +50,14 @@ namespace BinCleanerExtension.Commands
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(Execute, menuCommandID);
+            var menuItem = new MenuCommand(this.Execute, menuCommandID);
             commandService.AddCommand(menuItem);
         }
+
+        #endregion
+
+        #region Properties
+
 
         /// <summary>
         /// Gets the instance of the command.
@@ -63,9 +75,14 @@ namespace BinCleanerExtension.Commands
         {
             get
             {
-                return package;
+                return this.package;
             }
         }
+
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Initializes the singleton instance of the command.
@@ -77,7 +94,7 @@ namespace BinCleanerExtension.Commands
             // the UI thread.
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
-            OleMenuCommandService commandService = await package.GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
+            OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
             Instance = new BinCleaner(package, commandService);
         }
 
@@ -118,6 +135,15 @@ namespace BinCleanerExtension.Commands
             WindowHelper.ShowModal(window);
         }
 
+        #endregion
+
+        #region Project listy methods
+
+        /// <summary>
+        /// Get all project from the solution (Non-null management)
+        /// </summary>
+        /// <param name="solution"></param>
+        /// <returns></returns>
         public static IEnumerable<EnvDTE.Project> GetProjects(IVsSolution solution)
         {
             foreach (IVsHierarchy hier in GetProjectsInSolution(solution))
@@ -128,13 +154,25 @@ namespace BinCleanerExtension.Commands
             }
         }
 
+        /// <summary>
+        /// Get all project form solution
+        /// </summary>
+        /// <param name="solution"></param>
+        /// <returns></returns>
         public static IEnumerable<IVsHierarchy> GetProjectsInSolution(IVsSolution solution)
         {
             return GetProjectsInSolution(solution, __VSENUMPROJFLAGS.EPF_LOADEDINSOLUTION);
         }
 
+        /// <summary>
+        /// Load all project in solution from flags
+        /// </summary>
+        /// <param name="solution"></param>
+        /// <param name="flags"></param>
+        /// <returns></returns>
         public static IEnumerable<IVsHierarchy> GetProjectsInSolution(IVsSolution solution, __VSENUMPROJFLAGS flags)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
             if (solution == null)
                 yield break;
 
@@ -153,8 +191,16 @@ namespace BinCleanerExtension.Commands
             }
         }
 
+        /// <summary>
+        /// Get DTE projects
+        /// </summary>
+        /// <param name="hierarchy"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static EnvDTE.Project GetDTEProject(IVsHierarchy hierarchy)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
             if (hierarchy == null)
                 throw new ArgumentNullException("hierarchy");
 
@@ -162,5 +208,7 @@ namespace BinCleanerExtension.Commands
             hierarchy.GetProperty(VSConstants.VSITEMID_ROOT, (int)__VSHPROPID.VSHPROPID_ExtObject, out obj);
             return obj as EnvDTE.Project;
         }
+
+        #endregion
     }
 }

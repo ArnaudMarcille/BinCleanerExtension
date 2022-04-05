@@ -22,7 +22,7 @@
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
-  <Commands package="guidBinCleanerPackage">
+  <Commands package="guidBinCleanerExtension22Package">
     <!-- Inside this section we have different sub-sections: one for the menus, another
     for the menu groups, one for the buttons (the actual commands), one for the combos
     and the last one for the bitmaps used. Each element is identified by a command id that
@@ -36,7 +36,7 @@
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
-      <Group guid="guidBinCleanerPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+      <Group guid="guidBinCleanerExtension22PackageCmdSet" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
       </Group>
     </Groups>
@@ -52,8 +52,8 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidBinCleanerPackageCmdSet" id="BinCleanerId" priority="0x0100" type="Button">
-        <Parent guid="guidBinCleanerPackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidBinCleanerExtension22PackageCmdSet" id="BinCleanerId" priority="0x0100" type="Button">
+        <Parent guid="guidBinCleanerExtension22PackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
           <ButtonText>Clean bin and obj</ButtonText>
@@ -74,15 +74,15 @@
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidBinCleanerPackage" value="{642ab628-b6b5-4a74-9d77-b04df37f4f34}" />
+    <GuidSymbol name="guidBinCleanerExtension22Package" value="{086e5092-e511-4011-9651-0357e5247ac5}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidBinCleanerPackageCmdSet" value="{efc26bad-d32a-449e-a977-ffd4cec833b8}">
+    <GuidSymbol name="guidBinCleanerExtension22PackageCmdSet" value="{a6ab2fb9-8dcd-4442-b446-fe92aed67978}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="BinCleanerId" value="0x0100" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{217bc9ba-62db-4d20-9532-a676a71a0f5a}" >
+    <GuidSymbol name="guidImages" value="{8471a9c2-9040-4262-85f6-c56b281f21f6}" >
       <IDSymbol name="bmpPic1" value="1" />
     </GuidSymbol>
   </Symbols>

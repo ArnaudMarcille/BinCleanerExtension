@@ -1,19 +1,10 @@
 ﻿using System;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.Win32;
 using Task = System.Threading.Tasks.Task;
 
-namespace BinCleanerExtension.Commands
+namespace BinCleanerExtension22
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -33,27 +24,14 @@ namespace BinCleanerExtension.Commands
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
+    [Guid(BinCleanerExtension22Package.PackageGuidString)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(BinCleanerPackage.PackageGuidString)]
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-    public sealed class BinCleanerPackage : AsyncPackage
+    public sealed class BinCleanerExtension22Package : AsyncPackage
     {
         /// <summary>
-        /// BinCleanerPackage GUID string.
+        /// BinCleanerExtension22Package GUID string.
         /// </summary>
-        public const string PackageGuidString = "642ab628-b6b5-4a74-9d77-b04df37f4f34";
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BinCleanerPackage"/> class.
-        /// </summary>
-        public BinCleanerPackage()
-        {
-            // Inside this method you can place any initialization code that does not require
-            // any Visual Studio service because at this point the package object is created but
-            // not sited yet inside Visual Studio environment. The place to do all the other
-            // initialization is the Initialize method.
-        }
+        public const string PackageGuidString = "086e5092-e511-4011-9651-0357e5247ac5";
 
         #region Package Members
 
@@ -69,7 +47,7 @@ namespace BinCleanerExtension.Commands
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            await BinCleaner.InitializeAsync(this);
+            await BinCleanerExtension22.Commands.BinCleaner.InitializeAsync(this);
         }
 
         #endregion
