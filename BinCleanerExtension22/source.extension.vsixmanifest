@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 	<Metadata>
-		<Identity Id="BinCleanerExtension22.a0ebab8b-5e35-4bc0-a06d-41ed3d5d16ac" Version="2.1" Language="en-US" Publisher="Rowtips" />
+		<Identity Id="BinCleanerExtension22.a0ebab8b-5e35-4bc0-a06d-41ed3d5d16ac" Version="2.2" Language="en-US" Publisher="Rowtips" />
 		<DisplayName>BinObjCleaner</DisplayName>
 		<Description xml:space="preserve">BinCleanerExtension is an extension who allow you to delete one or multible bin and obj folder of your projects.</Description>
 		<MoreInfo>https://github.com/ArnaudMarcille/BinCleanerExtension</MoreInfo>
