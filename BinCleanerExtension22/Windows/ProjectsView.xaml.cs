@@ -85,8 +85,6 @@ namespace BinCleanerExtension22.Windows
             foreach (var project in projects.Select(p => new ProjectModel(p)).Where(p => !string.IsNullOrWhiteSpace(p.Key)))
             {
                 ProjectList.Add(project);
-                ProjectList.Add(project);
-                ProjectList.Add(project);
                 project.OnSelected += OnItemSelected;
             }
         }
