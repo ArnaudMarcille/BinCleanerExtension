@@ -65,6 +65,8 @@ namespace BinCleanerExtension22.Windows
             }
         }
 
+        public bool ActiveProgress { get; set; }
+
         #endregion
 
         #region Constructor
@@ -83,9 +85,10 @@ namespace BinCleanerExtension22.Windows
             foreach (var project in projects.Select(p => new ProjectModel(p)).Where(p => !string.IsNullOrWhiteSpace(p.Key)))
             {
                 ProjectList.Add(project);
+                ProjectList.Add(project);
+                ProjectList.Add(project);
                 project.OnSelected += OnItemSelected;
             }
-
         }
 
         #endregion
@@ -134,6 +137,8 @@ namespace BinCleanerExtension22.Windows
         /// </summary>
         private void DeleteFolders()
         {
+            ActiveProgress = true;
+            NotifyPropertyChanged(nameof(ActiveProgress));
             foreach (var project in ProjectList.Where(p => p.Selected))
             {
                 var path = Path.GetDirectoryName(project.FullPath);
@@ -161,6 +166,8 @@ namespace BinCleanerExtension22.Windows
                     project.SetDone(false);
                 }
             }
+            ActiveProgress = false;
+            NotifyPropertyChanged(nameof(ActiveProgress));
         }
 
         #endregion
